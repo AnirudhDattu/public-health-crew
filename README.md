@@ -36,49 +36,49 @@ The system automatically generates comprehensive Situation Reports (SitReps) tha
     ┌──────────────────┐          ┌──────────────────┐
     │  PARALLEL PHASE  │          │ SEQUENTIAL PHASE │
     └──────────────────┘          └──────────────────┘
-              │                               │
-    ┌─────────┴─────────┐                    │
-    ▼                   ▼                    │
+              │                             │
+    ┌─────────┴─────────┐                   │
+    ▼                   ▼                   │
 ┌─────────┐      ┌─────────────┐            │
 │ Agent 1 │      │  Agent 2    │            │
 │Anecdotal│      │  Official   │            │
 │ Scout   │      │   Scout     │            │
 └─────────┘      └─────────────┘            │
-    │                   │                    │
-    └─────────┬─────────┘                    │
-              ▼                               │
-        ┌──────────┐                         │
-        │ Agent 3  │                         │
-        │   Data   │                         │
-        │Validator │                         │
-        └──────────┘                         │
-              │                               │
-              ▼                               │
-        ┌──────────────┐                     │
-        │   Agent 4    │                     │
-        │Epidemiologist│                     │
-        └──────────────┘                     │
-              │                               │
-              ▼                               │
-        ┌──────────────┐                     │
-        │   Agent 5    │                     │
-        │    Alert     │                     │
-        │   Drafter    │                     │
-        └──────────────┘                     │
-              │                               │
-              ▼                               │
-        ┌──────────────┐                     │
-        │   Agent 6    │                     │
-        │    SitRep    │                     │
-        │  Generator   │                     │
-        └──────────────┘                     │
-              │                               │
-              ▼                               │
-        ┌──────────────┐                     │
-        │  Final SitRep│                     │
-        │ (.md & .pdf) │                     │
-        └──────────────┘                     │
-                                              │
+    │                   │                   │
+    └─────────┬─────────┘                   │
+              ▼                             │
+        ┌──────────┐                        │
+        │ Agent 3  │                        │
+        │   Data   │                        │
+        │Validator │                        │
+        └──────────┘                        │
+              │                             │
+              ▼                             │
+        ┌──────────────┐                    │
+        │   Agent 4    │                    │
+        │Epidemiologist│                    │
+        └──────────────┘                    │
+              │                             │
+              ▼                             │
+        ┌──────────────┐                    │
+        │   Agent 5    │                    │
+        │    Alert     │                    │
+        │   Drafter    │                    │
+        └──────────────┘                    │
+              │                             │
+              ▼                             │
+        ┌──────────────┐                    │
+        │   Agent 6    │                    │
+        │    SitRep    │                    │
+        │  Generator   │                    │
+        └──────────────┘                    │
+              │                             │
+              ▼                             │
+        ┌──────────────┐                    │
+        │  Final SitRep│                    │
+        │ (.md & .pdf) │                    │
+        └──────────────┘                    │
+                                            │
 ```
 
 ## 🤖 Agent Descriptions
@@ -163,37 +163,6 @@ public-health-crew/
 | `google-search-results` | Google search API wrapper |
 | `langchain-google-genai` | Google Gemini AI integration |
 
-## ⚙️ Installation
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/AnirudhDattu/public-health-crew.git
-cd public-health-crew
-```
-
-### 2. Create Virtual Environment
-```bash
-python -m venv venv
-
-# On Windows
-venv\Scripts\activate
-
-# On macOS/Linux
-source venv/bin/activate
-```
-
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configure Environment Variables
-Create a `.env` file in the project root:
-
-```env
-GOOGLE_API_KEY=your_google_gemini_api_key_here
-SERPER_API_KEY=your_serper_dev_api_key_here
-```
 
 **API Key Sources:**
 - **Google Gemini API**: [Get API Key](https://ai.google.dev/)
@@ -223,24 +192,6 @@ The system will:
 1. Display verbose agent activity and reasoning
 2. Execute all 6 tasks in order
 3. Generate a Markdown file: `SitRep_[Disease]_[Region].md`
-
-**Example Console Output:**
-```
-========================================
-🚀 Launching Public Health Crew for:
-   Disease: Dengue Fever Outbreak
-   Region:  Delhi, India
-========================================
-
-[Agent activity logs...]
-
-========================================
-✅ Crew run completed.
-Final Result:
-[Report summary]
-========================================
-Check your project folder for the final report: SitRep_Dengue_Fever_Outbreak_Delhi,_India.md
-```
 
 ## 📄 Example Output
 
@@ -283,24 +234,6 @@ The system generates comprehensive Situation Reports in Markdown format. Here's 
 | **Python** | 3.8+ | Core programming language |
 | **LangChain** | Latest | LLM integration and tooling |
 
-## 🔒 Security & Privacy
-
-- API keys are managed via environment variables (`.env`)
-- No API keys are committed to the repository
-- Data sources are publicly available information only
-- No personal health information (PHI) is collected
-
-## 📝 Configuration Details
-
-### LLM Configuration
-```python
-llm = LLM(
-    model="gemini/gemini-2.0-flash-lite",
-    api_key=GOOGLE_API_KEY,
-    temperature=0.7  # Balanced creativity and consistency
-)
-```
-
 ### Process Type
 - **Sequential Processing**: Tasks execute in order, with context passing between agents
 - **Parallel Execution**: Scout tasks run simultaneously for efficiency
@@ -321,25 +254,9 @@ llm = LLM(
 - **Average Runtime**: 2-5 minutes (depends on API response times)
 - **Output Format**: Markdown (.md), PDF available
 
-## 🤝 Contributing
-
-This is an academic assignment project. For educational purposes only.
-
-## 📜 License
-
-Educational project - see repository for details.
-
 ## 👨‍💻 Author
 
 **Anirudh Dattu**
 - GitHub: [@AnirudhDattu](https://github.com/AnirudhDattu)
-
-## 🙏 Acknowledgments
-
-- **CrewAI**: For the multi-agent framework
-- **Google Gemini**: For AI capabilities
-- **Serper**: For search API access
-
----
 
 **Note**: This system is designed for educational and research purposes. It should complement, not replace, official public health surveillance systems.

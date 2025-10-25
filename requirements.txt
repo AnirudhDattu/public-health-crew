@@ -5,3 +5,4 @@ python-dotenv
 langchain-openai
 langchain-groq
 google-search-results
+langchain-google-genai
